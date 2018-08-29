@@ -5,7 +5,8 @@
 
 import * as io from "socket.io-client";
 let socket = null;
-import { agentAssigned, userConnected, setConnectedUsersOnlineStatus, setAgentOnlineStatus } from "./actions/userActions";
+import { agentAssigned, userConnected, userDisconnected, supportDisconnected,
+    setConnectedUsersOnlineStatus, setAgentOnlineStatus } from "./actions/userActions";
 import { messageReceive } from "./actions/messageActions";
 export function chatMiddleware(store) {
   return (next) => (action) => {
@@ -16,22 +17,11 @@ export function chatMiddleware(store) {
         socket.emit("message", action.payload.message);
     }
 
-    // Initialises the application
-    if (socket && action.type === "create-chat-board") {
-          const state = store.getState();
-          socket.emit("create-board", {
-              userName: state.authentication.user.username,
-              isSupport: state.authentication.user.isSupport,
-          });
-      }
-
-      // Set User status.
+    // Set User status.
     if (socket && action.type === "set-user-online-status") {
         const state = store.getState();
         socket.emit("user-status-change", {
-            userId: state.authentication.user.username,
             isOnline: state.chatBoard.isOnline,
-            isSupport: state.authentication.user.isSupport,
         });
     }
  
@@ -57,6 +47,16 @@ export default (dispatch, token)  => {
     // On user is connectd to the agent.
     socket.on("user-connected", (data) => {
         dispatch(userConnected(data));
+    });
+
+    // On support disconnected.
+    socket.on("support-disconnected", (support) => {
+        dispatch(supportDisconnected());
+    });
+
+    // On User disconnected
+    socket.on("user-disconnected", (user) => {
+        dispatch(userDisconnected(user));
     });
 
     // On user status change, status can be Onine or Offline..

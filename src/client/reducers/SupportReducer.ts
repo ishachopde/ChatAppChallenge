@@ -6,8 +6,10 @@ import initialState from "../initialState";
 
 export default (state = initialState.support, action) => {
     switch (action.type) {
-        case "agent-assigned":
+        case "support-assigned":
             return action.payload.agent;
+        case "support-disconnected":
+            return {};
         case "set-connected-agent-online-status":
             return {
                 ...state,

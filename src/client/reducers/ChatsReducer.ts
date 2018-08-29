@@ -11,7 +11,7 @@ export default (state = initialState.chats, action) => {
             const receiverId = action.payload.message.receiverId;
             const messages = state[receiverId];
 
-            if(!messages) {
+            if (!messages) {
                 state[receiverId] = [action.payload.message];
                 return Object.assign({}, state);
             } else {

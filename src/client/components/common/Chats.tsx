@@ -29,7 +29,7 @@ export class Chats extends React.Component<IProps, {}> {
             </div>
         ) : "";
 
-        if (message.senderId === user.username) {
+        if (message.receiverId !== user.username) {
             return (
                 <div key={index}>
                     <div className="msg-right" style={{ background: backgroundColor}}>

@@ -6,7 +6,7 @@ import app from "./app";
 import * as http from "http";
 import config from "./config";
 import * as socket from "socket.io";
-import chatController from "./controllers/chatController";
+import ChatController from "./controllers/chatController";
 import * as  socketioJwt from "socketio-jwt";
 /**
  * Get port from environment and store in Express.
@@ -29,9 +29,18 @@ io.use(socketioJwt.authorize({
 // set authorization for socket.io
 io.on("connection", (socket) => {
     // Allow chat if socket is authenticated.
-    new chatController().on(io, socket);
+    const chatController = new ChatController();
+
+    // Get User from decode Token.
+    const user = socket.decoded_token.user;
+    chatController.on(io, socket, user);
+
+    if (user) {
+        chatController.userConnected(socket, user);
+    }
     socket.on("disconnect", () => {
         // When client disconnects.
+        chatController.userDisconnected(socket, user);
     });
 });
 

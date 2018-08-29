@@ -98,9 +98,8 @@ class UserChatClass extends React.Component<IProps, IState> {
             // if (trimmedMessage) {
             const store = getStore();
             store.dispatch(sendMessageToAgent({
-                senderId: user.username,
                 receiverId: support.userName,
-                message: message
+                message: message,
             }));
 
             this.setState({

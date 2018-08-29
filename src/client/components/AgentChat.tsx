@@ -164,7 +164,6 @@ class AgentChatClass extends React.Component<IProps, IState> {
         if (ev.which === 13) {
             const store = getStore();
             store.dispatch(sendMessageToAgent({
-                senderId,
                 receiverId,
                 message,
             }));

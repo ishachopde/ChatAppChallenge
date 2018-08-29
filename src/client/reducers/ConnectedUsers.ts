@@ -17,6 +17,8 @@ export default (state = initialState.connectedUsers, action) => {
                     isOnline: true,
                 },
             ];
+        case "user-disconnected":
+            return state.filter((user) => user.id !== action.payload.user.username);
         case "set-connected-users-online-status":
             const { userId, status} = action.payload;
             return state.map((user) => user.id === userId ? {...user, isOnline: status} : user);
