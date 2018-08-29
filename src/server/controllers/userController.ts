@@ -4,6 +4,8 @@
  */
 import BaseController from "./baseController";
 import userService from "../service/user";
+import {alertActions} from "../../client/actions/alertActions";
+import {history} from "../../client/helpers";
 
 export default class UserController extends BaseController {
     public authenticate(req, res, next)  {
@@ -14,8 +16,16 @@ export default class UserController extends BaseController {
 
     public register(req, res, next) {
         userService.create(req.body)
-            .then(() => res.json({}))
-            .catch((err) => next(err));
+            .then(
+                () => {
+                    res.json({});
+                },
+                (error) => {
+                    res.status(500).json({ message: error.message });
+                })
+            .catch((err) => {
+                next(err);
+            });
     }
 
     public getAll(req, res, next) {

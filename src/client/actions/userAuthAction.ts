@@ -48,11 +48,13 @@ function register(user) {
         userAuthApis.register(user)
             .then(
                 (user) => {
+                    console.log("then hi");
                     dispatch(success(user));
                     history.push("/login");
                     dispatch(alertActions.success("Registration successful"));
                 },
                 (error) => {
+                    console.log("hi");
                     dispatch(failure(error.toString()));
                     dispatch(alertActions.error(error.toString()));
                 },

@@ -7,7 +7,9 @@ export default (state = {}, action) => {
     case userConstants.REGISTER_SUCCESS:
       return {};
     case userConstants.REGISTER_FAILURE:
-      return {};
+      return {
+        ...state, alert: action.error,
+      };
     default:
       return state;
   }

@@ -13,14 +13,14 @@ import { Header } from "./common/Header";
 import { connect } from "react-redux";
 import { Chats } from "./common/Chats";
 import { HorizontalUserList } from "./common/HorizontalUserLIst";
-import {user_types, chatBoard_types, chats_types, connected_users_types} from "../types/types";
+import {UserTypes, ChatBoardTypes, ChatsTypes, ConnectedUsersTypes} from "../types/types";
 import { Colors as backgroundColors} from "../utils/Colors";
 
 interface IProps {
     user: any;
-    chatBoard: chatBoard_types;
-    connectedUsers: user_types[];
-    chats: chats_types;
+    chatBoard: ChatBoardTypes;
+    connectedUsers: UserTypes[];
+    chats: ChatsTypes;
     dispatch?;
     history?;
 }

@@ -14,6 +14,7 @@ interface IProps {
     registering?;
     dispatch?;
     history?;
+    alert;
 }
 
 interface IState {
@@ -46,7 +47,7 @@ class RegisterPage extends React.Component<IProps, IState> {
     }
 
     public render() {
-        const { registering  } = this.props;
+        const { registering, alert  } = this.props;
         const { user, submitted } = this.state;
         return (
             <div className="col-md-6 col-md-offset-3">
@@ -91,6 +92,7 @@ class RegisterPage extends React.Component<IProps, IState> {
 
                         <label>Support</label>
                     </div>
+                    {alert ? <div className="alert alert-danger" role="alert">{alert}</div> : ""}
                     <div className="form-group">
                         <button className="btn btn-primary">Register</button>
                         {registering &&
@@ -138,9 +140,11 @@ class RegisterPage extends React.Component<IProps, IState> {
 }
 
 const mapStateToProps = (state) => {
-    const { registering } = state.registration;
+    const { registering, alert } = state.registration;
+    console.log(alert);
     return {
         registering,
+        alert,
     };
 };
 

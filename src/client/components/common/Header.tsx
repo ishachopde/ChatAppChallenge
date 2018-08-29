@@ -7,10 +7,10 @@ import * as React from "react";
 import { connect } from "react-redux";
 import "../../resources/styles/components/common/Header.scss";
 import { changeOnlineCounter, changeOfflineCounter, setUserOnlineStatus } from "../../actions/userActions";
-import {chatBoard_types} from "../../types/types";
+import {ChatBoardTypes} from "../../types/types";
 import { history } from "../../helpers";
 interface IProps {
-    chatBoard: chatBoard_types;
+    chatBoard: ChatBoardTypes;
     user: any;
     dispatch?;
     history?;

@@ -3,7 +3,7 @@
  * @author  Isha CHopde
  */
 
-export interface user_types {
+export interface UserTypes {
     name: string;
     isAgent: boolean;
     id: string;
@@ -13,7 +13,7 @@ export interface user_types {
     lastMessageTimer: number;
 }
 
-export interface chatBoard_types {
+export interface ChatBoardTypes {
     chatBoardId: string;
     isOnline: boolean;
     onlineCount: number;
@@ -21,7 +21,7 @@ export interface chatBoard_types {
     lastMessageTimer: number;
 }
 
-export interface chats_types {
+export interface ChatsTypes {
     name: string;
     isAgent: boolean;
     id: string;
@@ -30,12 +30,12 @@ export interface chats_types {
     offlineCount: number;
 }
 
-export interface agent_types {
+export interface AgentTypes {
     userName: string;
     id: string;
     isOnline: boolean;
 }
 
-export interface connected_users_types {
-    connectedUsers: [user_types];
+export interface ConnectedUsersTypes {
+    connectedUsers: [UserTypes];
 }

@@ -5,6 +5,8 @@
   ],
   "jsRules": {},
   "rules": {
+    "interface-name":[false],
+    "eofline": false,
     "jsx-alignment": true,
     "jsx-boolean-value": false,
     "jsx-curly-spacing": [true, "never"],

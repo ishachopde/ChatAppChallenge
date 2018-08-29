@@ -13,6 +13,7 @@ interface IProps {
     loggingIn?;
     dispatch?;
     history?;
+    login;
 }
 
 interface IState {
@@ -38,7 +39,7 @@ class LoginPage extends React.Component<IProps, any> {
     }
 
     public render() {
-        const { loggingIn } = this.props;
+        const { loggingIn, login } = this.props;
         const { username, password, submitted } = this.state;
         return (
             <div className="col-md-6 col-md-offset-3">
@@ -58,6 +59,8 @@ class LoginPage extends React.Component<IProps, any> {
                             <div className="help-block">Password is required</div>
                         }
                     </div>
+
+                    {login ? <div className="alert alert-danger" role="alert">{login}</div> : ""}
                     <div className="form-group">
                         <button className="btn btn-primary">Login</button>
                         {loggingIn &&
@@ -88,9 +91,10 @@ class LoginPage extends React.Component<IProps, any> {
 }
 
 const mapStateToProps = (state) => {
-    const { loggingIn } = state.authentication;
+    const { loggingIn, login } = state.authentication;
     return {
         loggingIn,
+        login,
     };
 };
 

@@ -8,9 +8,9 @@ import * as React from "react";
 import { Colors as backgroundColors} from "../../utils/Colors";
 import "../../resources/styles/components/common/HorizontalUserLIst.scss";
 
-import {user_types} from "../../types/types";
+import {UserTypes} from "../../types/types";
 interface IProps {
-    inactiveChats: user_types[];
+    inactiveChats: UserTypes[];
     maxActiveChats: number;
     setActiveUser: any;
 }

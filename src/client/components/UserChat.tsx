@@ -9,12 +9,12 @@ import "../resources/styles/components/chat/ChatBox.scss";
 import { Header } from "./common/Header";
 import { connect } from "react-redux";
 import { Chats } from "./common/Chats";
-import {user_types, chatBoard_types, chats_types, agent_types} from "../types/types";
+import {UserTypes, ChatBoardTypes, ChatsTypes, AgentTypes} from "../types/types";
 interface IProps {
     user: any;
-    chatBoard: chatBoard_types;
-    chats: chats_types;
-    support: agent_types;
+    chatBoard: ChatBoardTypes;
+    chats: ChatsTypes;
+    support: AgentTypes;
     dispatch?;
     history?;
 }

@@ -4,6 +4,7 @@ const user = JSON.parse(localStorage.getItem("user"));
 const initialState = user ? { loggedIn: true, user } : {};
 
 export default (state = initialState, action) => {
+    // console.log(action);
     switch (action.type) {
         case userConstants.LOGIN_REQUEST:
             return {
@@ -16,7 +17,10 @@ export default (state = initialState, action) => {
                 user: action.user,
             };
         case userConstants.LOGIN_FAILURE:
-            return {};
+            return {
+                ...state,
+                login: action.error,
+            };
         case userConstants.LOGOUT:
             return {};
         default:

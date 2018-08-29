@@ -5,9 +5,9 @@
  */
 
 import * as React from "react";
-import {user_types, chats_types} from "../../types/types";
+import {UserTypes, ChatsTypes} from "../../types/types";
 interface IProps {
-    chats: chats_types | any;
+    chats: ChatsTypes | any;
     user: any;
     backgroundColor: string;
 }
