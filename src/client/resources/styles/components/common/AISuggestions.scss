@@ -1,0 +1,21 @@
+/**
+ * AI suggestions styles.
+ * @author  Isha CHopde
+ */
+
+.suggestions{
+    padding-left: 0px;
+    margin: 0px;
+    background-color: #fff;
+    background: rgba(255,255,255,0);
+    list-style: none;
+    position: absolute;
+    width: 100%;
+    bottom: 68px;
+}
+
+.suggestions li {
+    padding: 10px;
+    border: 1px solid #D4D9DF;
+    background-color: #F9FAFE;
+}

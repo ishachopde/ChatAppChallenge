@@ -1,0 +1,40 @@
+/**
+ * Horizontal scrollview styles.
+ * @author  Isha CHopde
+ */
+
+div.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+  }
+  
+  @keyframes blink-alert { 50% { border: 4px solid #D43245; }  }
+  div.scrollmenu span {
+    display: inline-block;
+    margin: 5px 10px;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    color: white;
+    text-align: center;
+    font-size: 2em;
+  }
+  
+  div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+  
+  div.scrollmenu a:hover {
+    background-color: #777;
+  }
+  
+  .scrollview-header {
+    margin-left: 10px;
+    font-size: 20px;
+  }

@@ -2,52 +2,46 @@
  * Create express server and initialises socket.io
  * @author  Isha CHopde
  */
-import  app from './app';
-import * as http from 'http';
-import config from './config';
-import * as socket from 'socket.io';
-import chatController from './controllers/chatController';
-import * as  socketioJwt from 'socketio-jwt';
+import app from "./app";
+import * as http from "http";
+import config from "./config";
+import * as socket from "socket.io";
+import chatController from "./controllers/chatController";
+import * as  socketioJwt from "socketio-jwt";
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(config.appConfig.port || '3000');
-app.set('port', port);
+const port = normalizePort(config.appConfig.port || "3000");
+app.set("port", port);
 
 /**
  * Create HTTP server.
  */
-
 const server = http.createServer(app);
 const io = socket(server);
 
 io.use(socketioJwt.authorize({
     secret: config.secret,
-    handshake: true
+    handshake: true,
 }));
+
 // set authorization for socket.io
-io.on('connection', function(socket) {
-    console.log("addas");
-    // Allow chat if socket is authenticated. 
-    new chatController(io, socket).on();
-    socket.on('disconnect', function() {
-
-    });
-
-    socket.on('subscribe', function(room) {
-
+io.on("connection", (socket) => {
+    // Allow chat if socket is authenticated.
+    new chatController().on(io, socket);
+    socket.on("disconnect", () => {
+        // When client disconnects.
     });
 });
-
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+server.on("error", onError);
+server.on("listening", onListening);
 console.log("Server running on port" + port);
 /**
  * Normalize a port into a number, string, or false.
@@ -74,22 +68,22 @@ function normalizePort(val) {
  */
 
 function onError(error) {
-    if (error.syscall !== 'listen') {
+    if (error.syscall !== "listen") {
         throw error;
     }
 
-    var bind = typeof port === 'string' ?
-        'Pipe ' + port :
-        'Port ' + port;
+    var bind = typeof port === "string" ?
+        "Pipe " + port :
+        "Port " + port;
 
     // handle specific listen errors with friendly messages
     switch (error.code) {
-        case 'EACCES':
-            console.error(bind + ' requires elevated privileges');
+        case "EACCES":
+            console.error(bind + " requires elevated privileges");
             process.exit(1);
             break;
-        case 'EADDRINUSE':
-            console.error(bind + ' is already in use');
+        case "EADDRINUSE":
+            console.error(bind + " is already in use");
             process.exit(1);
             break;
         default:
@@ -102,8 +96,8 @@ function onError(error) {
  */
 
 function onListening() {
-    var addr = server.address();
-    var bind = typeof addr === 'string' ?
-        'pipe ' + addr :
-        'port ' + addr.port;
+    const addr = server.address();
+    const bind = typeof addr === "string" ?
+        "pipe " + addr :
+        "port " + addr.port;
 }

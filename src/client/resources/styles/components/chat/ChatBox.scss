@@ -1,0 +1,165 @@
+/**
+ * Chat box styles.
+ * @author  Isha CHopde
+ */
+
+@-webkit-keyframes blink-CB6080 { 50% { border: 4px solid #CB6080; }  }
+@-webkit-keyframes blink-0AA693 { 50% { border: 4px solid #0AA693; }  }
+@-webkit-keyframes blink-966AB8 { 50% { border: 4px solid #966AB8; }  }
+@-webkit-keyframes blink-3D9CC4 { 50% { border: 4px solid #3D9CC4; }  }
+
+.msg_box{
+    position:fixed;
+    bottom:-5px;
+    width:448px;
+    background: #ECF2F9;
+    border-radius:15px 15px 0px 0px;
+    margin-left: 30px;
+    margin-right: 30px;
+   }
+   
+   .msg_head{  
+    height: 30px;
+    background: #ECF2F9;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 24px;
+   
+    border-bottom: 1px solid #D4D9DF;
+
+}
+
+   .msg_head h4 {
+    text-align: center;
+    vertical-align: middle;
+    font-size:25px;
+    font-weight: lighter;
+    font-family: sans-serif;
+    color: black;
+    text-align: center;
+    margin: 0px !important;
+}
+   
+   .msg_body{
+    height:300px !important;
+    font-size:12px;
+    padding:15px;
+    overflow:auto;
+    overflow-x: hidden;
+   }
+   .msg_input{
+    padding: 5px;
+    width:100%;
+    height: 55px;
+    border: 2px solid #E7EDF3;
+    border-radius: 15px 15px 0px 0px;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;   
+    box-sizing: border-box;  
+   }
+
+   .msg_footer_info_box {
+    text-align: center;
+    padding: 5px;
+   }
+   
+   .close{
+    float:right;
+    cursor:pointer;
+   }
+   .minimize{
+    float:right;
+    cursor:pointer;
+    padding-right:5px;
+    
+   }
+
+   .msg-left p {
+    margin: 0px !important;
+}
+   
+   .msg-left{
+  
+    position:relative;
+    background: white;
+    padding: 7px 12px 8px 12px;
+    min-height:10px;
+    margin-bottom:5px;
+    margin-right:15%;
+    border-radius:5px;
+    word-break: break-all;
+    font-size: 14px;
+//check font family
+font-family : sans-serif;
+// TODO check border radius requirements
+border-radius: 15px;
+box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.05);
+
+   }
+
+   .last-msg-time {
+    font-size: 10px;
+    font-weight: regular;
+    color: #8d8d8d;
+    padding-top: 3px;
+    padding-bottom: 9px;
+   }
+
+   .last-msg-time-left {
+    text-align: left;
+    font-size: 10px;
+    font-weight: regular;
+    color: #8d8d8d;
+    padding-top: 3px;
+    padding-bottom: 9px;
+    }
+   .last-msg-time-right {
+       text-align: right;
+       font-size: 10px;
+    font-weight: regular;
+    color: #8d8d8d;
+    padding-top: 3px;
+    padding-bottom: 9px;
+   }
+   
+   .msg-right{
+    margin-left: 15%;   
+    
+    text-align: right;
+    padding: 7px 12px 8px 12px;
+    min-height:15px;
+    margin-bottom:5px;
+    position:relative;
+    word-break: break-all;
+    font-size: 14px;
+color: white;
+//check font family
+font-family : sans-serif;
+// TODO check border radius requirements
+border-radius: 15px;
+box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.05);
+   }
+
+   .msg-right p {
+       margin: 0px !important;
+   }
+
+   .chat-timer {
+    float: left;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    color:black;
+  display:table;
+}
+
+.chat-timer span {
+    display:table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 13px;
+font-weight: bold;
+color: white;
+
+}

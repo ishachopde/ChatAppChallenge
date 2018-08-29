@@ -3,103 +3,91 @@
  * @author  Isha CHopde
  */
 import BaseController from "./baseController";
-
-// Store the agent information.    
-let agents = {};
-
 // Stores the user information.
 let userPool = {};
 
+// Store the support information.
+let supports = {};
 export default class ChatController extends BaseController {
-    private io;
-    private socket;
-    constructor(io, socket) {
+    constructor() {
         super();
-        this.io = io;
-        this.socket = socket;
     }
 
-    public on() {
-        this.socket.on('message', function(msg) {
+    public on(io, socket) {
+        socket.on("message", (msg) => {
             const senderId = msg.senderId;
             const receiverId = msg.receiverId;
 
             const receiver = userPool[receiverId];
-            receiver.socket.emit('message', msg);
+            receiver.socket.emit("message", msg);
         });
 
-        this.socket.on('agent-assigned', function(data) {
-            console.log(data);
-        });
+        // this.socket.on("agent-assigned", (data) => {
+        // });
 
-        this.socket.on('user-status-change', (user) => {
-            const { userId, isOnline, isAgent } = user;
-            let connectedUsers = []
-            connectedUsers = (isAgent) ? agents[userId].connectedUsers : [userPool[userId].agent.id]
+        socket.on("user-status-change", (user) => {
+            const { userId, isOnline, isSupport } = user;
+            let connectedUsers = [];
+            connectedUsers = (isSupport) ? supports[userId].connectedUsers : [userPool[userId].agent.id];
 
-            connectedUsers.forEach(connectedUser => {
+            connectedUsers.forEach((connectedUser) => {
                 userPool[connectedUser].socket.emit("user-status-change", user);
             });
-        })
+        });
 
-        this.socket.on('create-board', function(data) {
-            userPool[data.chatBoardId] = {
-                socket: this.socket,
+        socket.on("create-board", (data) => {
+            userPool[data.userName] = {
+                socket,
                 userName: data.userName,
-                id: data.chatBoardId,
+                id: data.userName,
             };
 
-            if (data.isAgent) {
-                agents[data.chatBoardId] = {
-                    socket: this.socket,
+            if (data.isSupport) {
+                supports[data.userName] = {
+                    socket,
                     userName: data.userName,
-                    id: data.chatBoardId,
-                    connectedUsers: []
+                    id: data.userName,
+                    connectedUsers: [],
                 };
             } else {
 
-                // Get available agent. Can be done separately, but for this exercise
-                // assuption is agent is running before we run the user.
-                const randomAgent = function(obj) {
-                    var keys = Object.keys(obj)
+                // Get available support. Can be done separately, but for this exercise
+                // assuption is support is running before we run the user.
+                const randomSupport = (obj) => {
+                    const keys = Object.keys(obj);
                     return obj[keys[keys.length * Math.random() << 0]];
                 };
 
-
                 //
-                const agent = randomAgent(agents);
-
-                // Store user information in UserPool
-                userPool[data.chatBoardId] = {
-                    ...userPool[data.chatBoardId],
-                    agent: agent
-                };
-
-                if (agent) {
-                    agents[agent.id] = {
-                            ...agents[agent.id],
+                const support = randomSupport(supports);
+                if (support) {
+                    // Store user information in UserPool
+                    userPool[data.userName] = {
+                        ...userPool[data.userName],
+                        support,
+                    };
+                    supports[support.userName] = {
+                            ...supports[support.userName],
                             connectedUsers: [
-                                ...agents[agent.id].connectedUsers,
-                                data.chatBoardId // Add new user to the agent connected user list.
-                            ]
-                        }
+                                ...supports[support.userName].connectedUsers,
+                                data.userName, // Add new user to the agent connected user list.
+                            ],
+                        };
                     // Notify user agent is assigned.
-                    this.socket.emit('agent-connected', {
-                        userName: agent.userName,
-                        id: agent.id,
-                        isOnline: true
+                    socket.emit("agent-connected", {
+                        userName: support.userName,
+                        id: support.userName,
+                        isOnline: true,
                     });
 
                     // Notify agent user is assigned.
-                    agent.socket.emit('user-connected', {
+                    support.socket.emit("user-connected", {
                         name: data.userName,
-                        id: data.chatBoardId,
-                        isOnine: true
-                    })
+                        id: data.userName,
+                        isOnine: true,
+                    });
                 }
-
             }
         });
     }
-    
 }

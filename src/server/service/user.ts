@@ -1,7 +1,7 @@
-import config from '../config';
-import * as jwt from 'jsonwebtoken';
-import * as bcrypt from 'bcryptjs';
-import db from '../helpers/db';
+import config from "../config";
+import * as jwt from "jsonwebtoken";
+import * as bcrypt from "bcryptjs";
+import db from "../helpers/db";
 const User = db.User;
 
 export default {
@@ -10,7 +10,7 @@ export default {
     getById,
     create,
     update,
-    _delete
+    _delete,
 };
 
 async function authenticate({ username, password }) {
@@ -20,23 +20,23 @@ async function authenticate({ username, password }) {
         const token = jwt.sign({ sub: user.id }, config.secret);
         return {
             ...userWithoutHash,
-            token
+            token,
         };
     }
 }
 
 async function getAll() {
-    return await User.find().select('-hash');
+    return await User.find().select("-hash");
 }
 
 async function getById(id) {
-    return await User.findById(id).select('-hash');
+    return await User.findById(id).select("-hash");
 }
 
 async function create(userParam) {
     // validate
     if (await User.findOne({ username: userParam.username })) {
-        throw 'Username "' + userParam.username + '" is already taken';
+        throw new Error(`Username ${userParam.username} is already taken`);
     }
 
     const user = new User(userParam);
@@ -54,9 +54,11 @@ async function update(id, userParam) {
     const user = await User.findById(id);
 
     // validate
-    if (!user) throw 'User not found';
+    if (!user) {
+        throw new Error("User not found");
+    }
     if (user.username !== userParam.username && await User.findOne({ username: userParam.username })) {
-        throw 'Username "' + userParam.username + '" is already taken';
+        throw new Error(`Username ${userParam.username} is already taken`);
     }
 
     // hash password if it was entered

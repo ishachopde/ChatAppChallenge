@@ -2,8 +2,8 @@
  * Base Controller
  * @author  Isha CHopde
  */
-import * as _ from "underscore";
-export default class baseController {
-    run (req, res, next) {
+export default class BaseController {
+    public run(req, res, next) {
+       // Common method for all controllers
     }
 }

@@ -1,0 +1,27 @@
+/**
+ * App Styles
+ * @author  Isha CHopde
+ */
+
+$blue: #3D9CC4;
+$white: #ECF2F9;
+body {
+    background-color: #F9FAFE;
+}
+
+.container {
+    width: 100%;
+}
+
+* {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+*:before,
+*:after {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}

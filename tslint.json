@@ -1,0 +1,40 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-react"
+  ],
+  "jsRules": {},
+  "rules": {
+    "jsx-alignment": true,
+    "jsx-boolean-value": false,
+    "jsx-curly-spacing": [true, "never"],
+    "jsx-equals-spacing": [true, "never"],
+    "jsx-key": true,
+    "jsx-no-bind": false,
+    "jsx-no-lambda": false,
+    "jsx-no-multiline-js": false,
+    "jsx-no-string-ref": true,
+    "jsx-self-close": true,
+    "jsx-wrap-multiline": true,
+    "max-line-length": [false, 200],
+    "max-classes-per-file": [true, 2],
+    "object-literal-sort-keys": false,
+    "no-bitwise": false,
+    "no-shadowed-variable": false,
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "any",
+        "named-imports-order": "any"
+      }
+    ],
+    "grouped-imports" : false
+  },
+  "linterOptions": {
+    "exclude": [
+      "src/template.ts"
+    ]
+  },
+  "rulesDirectory": []
+}

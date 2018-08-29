@@ -6,7 +6,8 @@
     "scripts": {
         "start-dev": "webpack --mode=development && node ./bin/www",
         "start": "webpack --mode=development && tsc && node ./src/server/index.js",
-        "test": "npm run test"
+        "test": "npm run test",
+        "tslint": "tslint -c tslint.json 'src/server/**/*.ts'"
     },
     "author": "Isha Chopde",
     "license": "ISC",
@@ -61,6 +62,8 @@
         "webpack-cli": "^3.0.8"
     },
     "devDependencies": {
-        "nodemon": "^1.17.5"
+        "nodemon": "^1.17.5",
+        "tslint": "^5.11.0",
+        "tslint-react": "^3.6.0"
     }
 }

@@ -1,4 +1,4 @@
-import * as mongoose from 'mongoose';
+import * as mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
@@ -10,6 +10,6 @@ const schema = new Schema({
     isSupport: { type: Boolean, required: true }
 });
 
-schema.set('toJSON', { virtuals: true });
+schema.set("toJSON", { virtuals: true });
 
-export default mongoose.model('User', schema);
+export default mongoose.model("User", schema);
