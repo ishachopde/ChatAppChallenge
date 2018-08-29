@@ -24,11 +24,11 @@ export function chatMiddleware(store) {
             isOnline: state.chatBoard.isOnline,
         });
     }
- 
+
     return result;
   };
 }
- 
+
 export default (dispatch, token)  => {
     // Connect with Socket only if valid token.
     socket = io({

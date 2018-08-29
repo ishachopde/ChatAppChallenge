@@ -21,6 +21,7 @@
     "object-literal-sort-keys": false,
     "no-bitwise": false,
     "no-shadowed-variable": false,
+    "no-console": [false],
     "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
     "ordered-imports": [
       true,

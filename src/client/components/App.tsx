@@ -13,6 +13,7 @@ import { PrivateRoute } from "./common/PrivateRoute";
 import { LoginPage } from "./LoginPage";
 import { history } from "../helpers";
 import { RegisterPage } from "./RegisterPage";
+import { HomePage } from "./HomePage";
 interface IProps {
     dispatch?;
 }
@@ -26,10 +27,11 @@ export class App extends React.Component<IProps, {}> {
         return (
             <Router history={history}>
                 <div>
-                <PrivateRoute exact path="/" component={UserChat} />
-                <PrivateRoute exact path="/support" component={AgentChat} />
-                <Route path="/login" component={LoginPage} />
-                <Route path="/register" component={RegisterPage} />
+                    <PrivateRoute exact path="/" component={HomePage} />
+                    <PrivateRoute exact path="/user" component={UserChat} />
+                    <PrivateRoute exact path="/support" component={AgentChat} />
+                    <Route exact path="/login" component={LoginPage} />
+                    <Route exact path="/register" component={RegisterPage} />
                 </div>
             </Router>
         );

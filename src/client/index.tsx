@@ -5,10 +5,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { App } from "./components/App";
-import {Provider} from 'react-redux';
+import {Provider} from "react-redux";
 import initialState from "./initialState";
-import {chatMiddleware} from './chat-middlerware';
-import { configure } from './store';
+import {chatMiddleware} from "./chat-middlerware";
+import { configure } from "./store";
 const store = configure(initialState);
 
 const ROOT = document.querySelector(".container");

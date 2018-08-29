@@ -7,7 +7,7 @@
         "start-dev": "webpack --mode=development && node ./bin/www",
         "start": "webpack --mode=development && tsc && node ./src/server/index.js",
         "test": "npm run test",
-        "tslint": "tslint -c tslint.json 'src/server/**/*.ts'"
+        "tslint": "tslint -c tslint.json 'src/**/*.ts'"
     },
     "author": "Isha Chopde",
     "license": "ISC",

@@ -4,9 +4,11 @@
  */
 import BaseController from "./baseController";
 // Stores the user information.
+// tslint:disable-next-line:prefer-const
 let userPool = {};
 
 // Store the support information.
+// tslint:disable-next-line:prefer-const
 let supports = {};
 export default class ChatController extends BaseController {
     constructor() {

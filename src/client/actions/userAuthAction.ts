@@ -10,7 +10,6 @@ export const userAuthActions = {
     login,
     logout,
     register,
-    getAll,
     delete: _delete,
 };
 function login(username, password) {
@@ -26,7 +25,7 @@ function login(username, password) {
                     if (user.isSupport) {
                         history.push("/support");
                     } else {
-                        history.push("/");
+                        history.push("/user");
                     }
                 },
                 (error) => {
@@ -63,19 +62,7 @@ function register(user) {
     function success(user) { return { type: userConstants.REGISTER_SUCCESS, user }; }
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error }; }
 }
-function getAll() {
-    return (dispatch) => {
-        dispatch(request());
-        userAuthApis.getAll()
-            .then(
-                (users) => dispatch(success(users)),
-                (error) => dispatch(failure(error.toString())),
-            );
-    };
-    function request() { return { type: userConstants.GETALL_REQUEST }; }
-    function success(users) { return { type: userConstants.GETALL_SUCCESS, users }; }
-    function failure(error) { return { type: userConstants.GETALL_FAILURE, error }; }
-}
+
 // prefixed function name with underscore because delete is a reserved word in javascript
 function _delete(id) {
     return (dispatch) => {

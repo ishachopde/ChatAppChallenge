@@ -41,7 +41,7 @@ class AgentChatClass extends React.Component<IProps, IState> {
         super(props);
         const { connectedUsers, user } = this.props;
         // If user does not exists, take him to the home screen.
-        if(!user.username) {
+        if (!user.username) {
             this.props.history.push("/login");
         }
         this.state = {
@@ -127,7 +127,7 @@ class AgentChatClass extends React.Component<IProps, IState> {
                         </div>
                     </div>
                 </div>
-            )
+            );
         });
     }
 
