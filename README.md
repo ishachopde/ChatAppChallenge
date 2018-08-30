@@ -37,5 +37,8 @@ npm start
 
 ## Server architecture
 
+![server architecture](https://github.com/ishachopde/ChatAppChallenge/blob/master/architecture/ChatAppArchitectureDiagram.png "Server Architecture")
+
 ## Client architecture
+![client architecture](https://github.com/ishachopde/ChatAppChallenge/blob/master/architecture/ClientArchitecture.png "Client Architecture")
 
