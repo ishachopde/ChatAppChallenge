@@ -46,8 +46,8 @@ export class HeaderClass extends React.Component<IProps, IState> {
         const { onlineCount, offlineCount, isOnline } = this.props.chatBoard;
         const statusDropDownClass = (isOnline) ? "border-online" : "border-offline";
         return (
-            <div className="header">
-                <a href="#default" className="logo">Support Chat Challenge - {this.props.user.username}</a>
+            <div className="header bg">
+                <a href="#default" className="logo bg">Support Chat Challenge - {this.props.user.username}</a>
                 <div className="headerrightitems">
                     <div className={`selectWrapper ${statusDropDownClass}`}>
                             <select className="selectBox" onChange={this.changeStatusChange.bind(this)}>

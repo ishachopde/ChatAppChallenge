@@ -7,7 +7,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import "../resources/styles/loginstyles.css";
+// import "../resources/styles/loginstyles.css";
 
 import { userAuthActions } from "../actions/userAuthAction";
 
@@ -51,9 +51,9 @@ class RegisterPage extends React.Component<IProps, IState> {
         const { registering, alert  } = this.props;
         const { user, submitted } = this.state;
         return (
-            <div className="col-md-6 col-md-offset-3">
-                <span className="border border-primary"></span>
-                <h2>Register</h2>
+            <div className="col-md-6 col-md-offset-3 bg">
+                <h2>Please Sign Up <small>It's free and always will be.</small></h2>
+                <hr className="colorgraph"/>
                 <form name="form" onSubmit={this.handleSubmit}>
                     <div className={"form-group" + (submitted && !user.firstName ? " has-error" : "")}>
                         <label htmlFor="firstName">First Name</label>
@@ -92,12 +92,11 @@ class RegisterPage extends React.Component<IProps, IState> {
                             value="support"
                         />
 
-                        <label>Support</label>
-                        <div className="warning">
-                            <p><strong>Note!</strong> To register for the first time click "SUPPORT" checkbox to bring Support Agent Online.</p>
-                        </div>
+                            <label>Support</label>
+                            &nbsp; By clicking <strong className="label label-primary">Support</strong>, for the first time bring Support Agent Online.
                     </div>
                     {alert ? <div className="alert alert-danger" role="alert">{alert}</div> : ""}
+                    <hr className="colorgraph"/>
                     <div className="form-group">
                         <button className="btn btn-primary">Register</button>
                         {registering &&
