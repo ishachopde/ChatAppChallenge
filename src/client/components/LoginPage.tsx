@@ -8,7 +8,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { userAuthActions } from "../actions/userAuthAction";
-
+import { Readme } from "./Readme";
 interface IProps {
     loggingIn?;
     dispatch?;
@@ -43,7 +43,7 @@ class LoginPage extends React.Component<IProps, any> {
         const { username, password, submitted } = this.state;
         return (
             <div>
-                <div className="col-md-4">
+                <div className="col-md-6 col-md-offset-2">
                     <h2>Login</h2>
                     <form name="form" onSubmit={this.handleSubmit}>
                         <div className={"form-group" + (submitted && !username ? " has-error" : "")}>
@@ -70,16 +70,10 @@ class LoginPage extends React.Component<IProps, any> {
                         </div>
                     </form>
                 </div>
-                <div className="col-md-6">
-                <div className="jumbotron">
-                    <h2 className="display-4">Hello, welcome to my Support Chat Challenge</h2>
-                    <p className="lead">Insert some info here</p>
-                    <hr className="my-4" />
-                    <p>Insert read me here.</p>
-                </div>
+                <div className="col-md-9 col-md-offset-1">
+                    <Readme />
 
                 </div>
->>>>>>> LOgin page design changed
             </div>
         );
     }
