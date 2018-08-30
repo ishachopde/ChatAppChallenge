@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b18a3b93-4352-4323-be2b-492428139b8c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/client/components/NavBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/components/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/LoginPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/components/Readme.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/Readme.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/components/RegisterPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/RegisterPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/components/common/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/components/common/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/resources/styles/components/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/resources/styles/components/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/resources/styles/loginstyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/resources/styles/loginstyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -80,11 +70,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.scss" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/resources/styles/components/App.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
               <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -96,18 +95,6 @@
               <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
               <folding>
                 <element signature="e#65#96#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserChat.tsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/components/UserChat.tsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-173">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="57" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -170,6 +157,7 @@
         <option value="$PROJECT_DIR$/src/client/components/RegisterPage.tsx" />
         <option value="$PROJECT_DIR$/src/client/components/Readme.tsx" />
         <option value="$PROJECT_DIR$/src/client/resources/styles/components/App.scss" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -317,12 +305,12 @@
       <updated>1535560801195</updated>
       <workItem from="1535560803867" duration="16854000" />
       <workItem from="1535583050003" duration="3083000" />
-      <workItem from="1535647034431" duration="9337000" />
+      <workItem from="1535647034431" duration="9453000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29274000" />
+    <option name="totallyTimeSpent" value="29390000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="957" extended-state="0" />
@@ -413,13 +401,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tslint.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/common/Header.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -800,6 +781,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
         </state>
       </provider>
     </entry>

@@ -6,3 +6,5 @@ build/
 #Exclude tsc generated files
 *.map
 src/**/*.js
+
+.idea
