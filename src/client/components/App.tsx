@@ -26,7 +26,7 @@ export class App extends React.Component<IProps, {}> {
     public render() {
         return (
             <Router history={history}>
-                <div>
+                <div className="container">
                     <PrivateRoute exact path="/" component={HomePage} />
                     <PrivateRoute exact path="/user" component={UserChat} />
                     <PrivateRoute exact path="/support" component={AgentChat} />

@@ -62,6 +62,7 @@ select.status {
 
 .header {
     overflow: hidden;
+    width: 95%;
 }
 
 .header a {
@@ -104,19 +105,22 @@ select.status {
         float: none;
     }
 }
+
 .headerrightitems {
     padding: 15px;
 }
+
 .headertimers12 {
     border: 1px solid #D4D9DE;
     width: 250px;
-    overflow:hidden;
+    overflow: hidden;
     float: right;
     border-radius: 15px;
     margin-right: 15px;
     font-size: 13px;
     height: 20px;
 }
+
 .headertimers12 .header-timer-divs {
     display: flex;
 }
@@ -131,23 +135,24 @@ select.status {
     padding-top: 2px;
 }
 
-.selectWrapper{
+.selectWrapper {
     float: right;
-    border-radius:36px;
+    border-radius: 36px;
     //display:inline-block;
-    overflow:hidden;
-    background:#cccccc;
-  }
+    overflow: hidden;
+    background: #cccccc;
+}
 
-  .border-online {
+.border-online {
     border: 2px solid #02A626;
-  }
+}
 
-  .border-offline {
+.border-offline {
     border: 2px solid #D43245;
-  }
-  .selectBox{
-    width:140px;
-    border:0px;
-    outline:none;
-  }
+}
+
+.selectBox {
+    width: 140px;
+    border: 0px;
+    outline: none;
+}

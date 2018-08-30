@@ -23,19 +23,12 @@ export class Chats extends React.Component<IProps, {}> {
     }
 
     const renderChats = chats.map((message, index) => {
-        const messageTime = (index === chats.length - 1) ? (
-            <div className="last-msg-time">
-                    Just now
-            </div>
-        ) : "";
-
         if (message.receiverId !== user.username) {
             return (
                 <div key={index}>
                     <div className="msg-right" style={{ background: backgroundColor}}>
                         <p>{message.message}</p>
                     </div>
-                    {messageTime}
                 </div>
             );
         } else {
@@ -44,7 +37,6 @@ export class Chats extends React.Component<IProps, {}> {
                     <div className="msg-left">
                         <p>{message.message}</p>
                     </div>
-                    {messageTime}
                 </div>
             );
         }
