@@ -22,7 +22,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-    * [Install Mongo DB] - https://docs.mongodb.com/manual/administration/install-community/
+    * Install Mongo DB - https://docs.mongodb.com/manual/administration/install-community/
+    ** Mac - https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/?_ga=2.72773907.1410341941.1535649337-970892403.1535649337
 
 
 ### Installing

@@ -16,35 +16,35 @@ export class Chats extends React.Component<IProps, {}> {
     constructor(props: IProps) {
         super(props);
     }
-    public render() {
-    const { chats, user, backgroundColor } = this.props;
-    if (!chats) {
-        return "";
-    }
-
-    const renderChats = chats.map((message, index) => {
-        if (message.receiverId !== user.username) {
-            return (
-                <div key={index}>
-                    <div className="msg-right" style={{ background: backgroundColor}}>
-                        <p>{message.message}</p>
-                    </div>
-                </div>
-            );
-        } else {
-            return (
-                <div key={index}>
-                    <div className="msg-left">
-                        <p>{message.message}</p>
-                    </div>
-                </div>
-            );
+    public render(): React.ReactNode {
+        const { chats, user, backgroundColor } = this.props;
+        if (!chats) {
+            return "";
         }
-    });
-    return (
-        <div className="chat-history">
-            {renderChats}
-        </div>
-    );
+
+        const renderChats = chats.map((message, index) => {
+            if (message.receiverId !== user.username) {
+                return (
+                    <div key={index}>
+                        <div className="msg-right" style={{ background: backgroundColor}}>
+                            <p>{message.message}</p>
+                        </div>
+                    </div>
+                );
+            } else {
+                return (
+                    <div key={index}>
+                        <div className="msg-left">
+                            <p>{message.message}</p>
+                        </div>
+                    </div>
+                );
+            }
+        });
+        return (
+            <div className="chat-history">
+                {renderChats}
+            </div>
+        );
     }
 }

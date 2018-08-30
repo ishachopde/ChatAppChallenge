@@ -47,7 +47,7 @@ class RegisterPage extends React.Component<IProps, IState> {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    public render() {
+    public render(): React.ReactNode {
         const { registering, alert  } = this.props;
         const { user, submitted } = this.state;
         return (
@@ -109,7 +109,7 @@ class RegisterPage extends React.Component<IProps, IState> {
         );
     }
 
-    private handleChange(event) {
+    private handleChange(event): void {
         const { name, value } = event.target;
         const { user } = this.state;
         this.setState({
@@ -120,7 +120,11 @@ class RegisterPage extends React.Component<IProps, IState> {
         });
     }
 
-    private handleSubmit(event) {
+    /**
+     * Handles register click event.
+     * @param event
+     */
+    private handleSubmit(event): void {
         event.preventDefault();
 
         this.setState({ submitted: true });
@@ -132,7 +136,7 @@ class RegisterPage extends React.Component<IProps, IState> {
     }
 
     // Set IsAgent Status
-    private handleAgentChange = (e) => {
+    private handleAgentChange = (e): void => {
         const { user } = this.state;
         this.setState({
             user: {

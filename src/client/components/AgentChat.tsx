@@ -13,12 +13,11 @@ import { Header } from "./common/Header";
 import { connect } from "react-redux";
 import { Chats } from "./common/Chats";
 import { HorizontalUserList } from "./common/HorizontalUserLIst";
-import {UserTypes, ChatBoardTypes, ChatsTypes, ConnectedUsersTypes} from "../types/types";
+import {UserTypes, ChatsTypes, ConnectedUsersTypes} from "../types/types";
 import { Colors as backgroundColors} from "../utils/Colors";
 
 interface IProps {
     user: any;
-    chatBoard: ChatBoardTypes;
     connectedUsers: UserTypes[];
     chats: ChatsTypes;
     dispatch?;
@@ -53,8 +52,9 @@ class AgentChatClass extends React.Component<IProps, IState> {
         };
     }
 
-    public render() {
-        /* This calculations can be done in constructor for faster perfomance, but for the demo 
+    // Render Agent Chat.
+    public render(): React.ReactNode {
+        /* This calculations can be done in constructor for faster perfomance, but for the demo
         with different screen Sizes calculating every time. */
         const maxActiveChats = this.calculateNumberOfChats(window.innerWidth);
         const activeChats = this.props.connectedUsers.slice(0, maxActiveChats);
@@ -68,6 +68,11 @@ class AgentChatClass extends React.Component<IProps, IState> {
         );
     }
 
+    /**
+     * Render current active chats.
+     * @param maxActiveChats Renders current active chats.
+     * @param activeChats - active chats as per the screen size.
+     */
     public renderActiveChats(maxActiveChats, activeChats) {
         const { chats, user } = this.props;
         const { inputMessages, currentlyChattingUser } = this.state;
@@ -91,8 +96,6 @@ class AgentChatClass extends React.Component<IProps, IState> {
             }
 
             const activeChatBorder = (currentlyChattingUser === activeChat.id) ? `4px solid ${backgroundColor}` : "";
-
-            const suggestions = (this.state.suggestions[activeChat.id]) ? this.state.suggestions[activeChat.id] : [];
             return (
                 <div key={index}  className="msg_box" style={{ left, animation: boxAnimation, border: activeChatBorder }}>
                     <div className="msg_head">
@@ -118,7 +121,7 @@ class AgentChatClass extends React.Component<IProps, IState> {
                                 placeholder="Type a message.."
                                 className="msg_input"
                                 disabled={!activeChat.isOnline}
-                                onKeyPress={(ev) => this.handleKeyPress(ev, user.username, activeChat.id)}
+                                onKeyPress={(ev) => this.handleKeyPress(ev, activeChat.id)}
                                 onFocus={() => this.onInputFocused(activeChat.id)}
                                 onChange={(ev) => this.handleMessageChange.call(this, ev, activeChat.id)}
                                 onBlur={this.inInputBlurred.bind(this)}
@@ -131,25 +134,32 @@ class AgentChatClass extends React.Component<IProps, IState> {
         });
     }
 
-    public componentWillUnmount() {
+    /**
+     * Clear all timers on unmount.
+     */
+    public componentWillUnmount(): void {
         Object.keys(this.lastMessageTimers).forEach((key) => {
             clearInterval(this.lastMessageTimers[key]);
         });
     }
 
-    private onInputFocused(userId) {
+    // On Focus get current focused user.
+    private onInputFocused(userId): void {
         this.setState({
             currentlyChattingUser: userId,
         });
     }
 
-    private inInputBlurred() {
+    /**
+     * Set current user to null if no window is focused.
+     */
+    private inInputBlurred(): void {
         this.setState({
             currentlyChattingUser: "",
         });
     }
 
-    private handleMessageChange = (e, userId) => {
+    private handleMessageChange = (e, userId): void => {
         const inputMessages = this.state.inputMessages;
         inputMessages[userId] = e.target.value;
 
@@ -158,11 +168,18 @@ class AgentChatClass extends React.Component<IProps, IState> {
         });
     }
 
-    private handleKeyPress(ev, senderId, receiverId) {
+    /**
+     * Handler send message.
+     * @param ev 
+     * @param receiverId - receiver user id.
+     */
+    private handleKeyPress(ev, receiverId): void {
         const { inputMessages } = this.state;
         const message = (inputMessages[receiverId] ? inputMessages[receiverId] : "");
         if (ev.which === 13) {
             const store = getStore();
+
+            // Send message.
             store.dispatch(sendMessageToAgent({
                 receiverId,
                 message,
@@ -178,12 +195,17 @@ class AgentChatClass extends React.Component<IProps, IState> {
         }
     }
 
-    private calculateNumberOfChats(screenWidth) {
+    // Calculate the number of chats windows that can be opened.
+    private calculateNumberOfChats(screenWidth): number {
         const noChatWindows = Math.floor(screenWidth / (this.chatWindowWidth + this.marginBetweenTwoChatWindows));
         return noChatWindows;
     }
 
-    private startMessageReceivedTimer(id) {
+    /**
+     * Set message received timer for user id.
+     * @param id USer id.
+     */
+    private startMessageReceivedTimer(id): void {
         if (!this.lastMessageTimers.hasOwnProperty(id)) {
             this.lastMessageTimers[id] = setInterval(() => {
                 this.props.dispatch(changeLastMessageReceivedCounter(id));
@@ -191,21 +213,19 @@ class AgentChatClass extends React.Component<IProps, IState> {
         }
     }
 
-    private onSuggestionClick(userId, suggestion) {
-        const { inputMessages, suggestions } = this.state;
-        inputMessages[userId] = suggestion;
-        delete suggestions[userId];
-        this.setState({
-            inputMessages,
-            suggestions,
-        });
-    }
-
-    private setActiveUser(userId) {
+    /**
+     * Set active user.
+     * @param userId - user id.
+     */
+    private setActiveUser(userId): void {
         this.props.dispatch(setActiveUser(userId));
     }
 
-    private formatSeconds(totalSeconds) {
+    /**
+     * Format seconds to ss or mm or hh.
+     * @param totalSeconds - seconds
+     */
+    private formatSeconds(totalSeconds): string {
         const seconds: number = totalSeconds % 60;
         const minutes: number = Math.floor(totalSeconds / 60);
         const hours = Math.floor(totalSeconds / 3600);
@@ -220,15 +240,12 @@ class AgentChatClass extends React.Component<IProps, IState> {
 
         return `${seconds}s`;
     }
-
-
 }
 
 const mapStateToProps = (state) => {
-    const user = state.authentication.user || {}
+    const user = state.authentication.user || {};
     return {
         user,
-        chatBoard: state.chatBoard,
         connectedUsers: state.connectedUsers,
         chats: state.chats,
     };
@@ -237,5 +254,3 @@ const mapStateToProps = (state) => {
 export const AgentChat = connect(
     mapStateToProps,
 )(AgentChatClass);
-
-

@@ -1,3 +1,9 @@
+
+/**
+ * User Auth related redux actions.
+ * @author  Isha CHopde
+ */
+
 import { userAuthApis } from "../apis/userAuthApi";
 import { alertActions } from "./alertActions";
 import { history } from "../helpers";

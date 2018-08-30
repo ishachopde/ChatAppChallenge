@@ -1,3 +1,8 @@
+/**
+ * Create App class and initialises routes, error handlers, etc.
+ * @author  Isha CHopde
+ */
+
 import * as express from "express";
 import * as path from "path";
 import favicon from "serve-favicon";
@@ -8,6 +13,7 @@ import * as cors from "cors";
 import jwt from "./helpers/jwt";
 import errorHandler from "./helpers/errorHandlers";
 import routes from "./routes/index";
+import userRoutes from "./routes/userRoutes";
 class App {
   public app;
   constructor() {
@@ -45,12 +51,10 @@ class App {
    */
   private mountRoutes(): void {
     /* GET home page. */
-    this.app.get("/", (req, res, next) => {
-      res.render("index", { title: "Express" });
-    });
+    this.app.use("/", routes);
 
     // api routes
-    this.app.use("/users", routes);
+    this.app.use("/users", userRoutes);
   }
 }
 

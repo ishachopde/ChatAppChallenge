@@ -20,7 +20,7 @@ export class HomePage extends React.Component<{}, {}> {
         }
     }
 
-    public render() {
+    public render(): React.ReactNode {
         return (
             <div>
                 Loading...

@@ -1,7 +1,11 @@
+/**
+ * Error handler for the response errors.
+ * @author  Isha CHopde
+ */
+
 export default errorHandler;
 
 function errorHandler(err, req, res, next) {
-    console.log(err);
     if (typeof(err) === "string") {
         // custom application error
         return res.status(400).json({ message: err });

@@ -13,7 +13,7 @@ const config = {
             dbType: "",
         },
         connectionString: "mongodb://localhost/node-mongo-registration-login-api",
-        secret: "THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING",
+        secret: "THIS IS ISHA CHOPDE'S SECRET ;-)",
     },
     testing: {
 

@@ -19,12 +19,6 @@ interface IProps {
     login;
 }
 
-interface IState {
-    username: string;
-    password: string;
-    submitted: boolean;
-}
-
 class LoginPage extends React.Component<IProps, any> {
     constructor(props: IProps) {
         super(props);
@@ -41,6 +35,9 @@ class LoginPage extends React.Component<IProps, any> {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    /**
+     * Renders Login Component.
+     */
     public render() {
         const { loggingIn, login } = this.props;
         const { username, password, submitted } = this.state;
@@ -97,11 +94,19 @@ class LoginPage extends React.Component<IProps, any> {
         );
     }
 
+    /**
+     * Handlers input change event.
+     * @param e
+     */
     private handleChange(e) {
         const { name, value } = e.target;
         this.setState({ [name]: value });
     }
 
+    /**
+     * Handles login click event.
+     * @param e
+     */
     private handleSubmit(e) {
         e.preventDefault();
 

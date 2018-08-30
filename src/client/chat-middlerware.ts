@@ -17,14 +17,6 @@ export function chatMiddleware(store) {
         socket.emit("message", action.payload.message);
     }
 
-    // Set User status.
-    if (socket && action.type === "set-user-online-status") {
-        const state = store.getState();
-        socket.emit("user-status-change", {
-            isOnline: state.chatBoard.isOnline,
-        });
-    }
-
     return result;
   };
 }

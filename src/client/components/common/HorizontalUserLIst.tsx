@@ -1,6 +1,6 @@
 
 /**
- * Component to display horizontal user list..
+ * Component to display horizontal user list.
  * @author  Isha CHopde
  */
 
@@ -19,7 +19,7 @@ export class HorizontalUserList extends React.Component<IProps, {}> {
     constructor(props: IProps) {
         super(props);
     }
-    public render() {
+    public render(): React.ReactNode {
         const {inactiveChats, maxActiveChats, setActiveUser} = this.props;
         if (inactiveChats.length === 0) {
             return "";

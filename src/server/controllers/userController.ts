@@ -1,11 +1,9 @@
 /*
- * Controller to handle socket request related to Chat
+ * Controller to handle user Apis
  * @author  Isha CHopde
  */
 import BaseController from "./baseController";
 import userService from "../service/user";
-import {alertActions} from "../../client/actions/alertActions";
-import {history} from "../../client/helpers";
 
 export default class UserController extends BaseController {
     public authenticate(req, res, next)  {
@@ -26,12 +24,6 @@ export default class UserController extends BaseController {
             .catch((err) => {
                 next(err);
             });
-    }
-
-    public getAll(req, res, next) {
-        userService.getAll()
-            .then((users) => res.json(users))
-            .catch((err) => next(err));
     }
 
     public getCurrent(req, res, next) {

@@ -13,14 +13,6 @@ export interface UserTypes {
     lastMessageTimer: number;
 }
 
-export interface ChatBoardTypes {
-    chatBoardId: string;
-    isOnline: boolean;
-    onlineCount: number;
-    offlineCount: number;
-    lastMessageTimer: number;
-}
-
 export interface ChatsTypes {
     name: string;
     isAgent: boolean;

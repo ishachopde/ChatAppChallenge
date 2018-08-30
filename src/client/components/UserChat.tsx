@@ -9,10 +9,9 @@ import "../resources/styles/components/chat/ChatBox.scss";
 import { Header } from "./common/Header";
 import { connect } from "react-redux";
 import { Chats } from "./common/Chats";
-import {UserTypes, ChatBoardTypes, ChatsTypes, AgentTypes} from "../types/types";
+import {UserTypes, ChatsTypes, AgentTypes} from "../types/types";
 interface IProps {
     user: any;
-    chatBoard: ChatBoardTypes;
     chats: ChatsTypes;
     support: AgentTypes;
     dispatch?;
@@ -37,8 +36,9 @@ class UserChatClass extends React.Component<IProps, IState> {
         };
     }
 
-    public render() {
-        const { support, user, chatBoard, chats } = this.props;
+    // Render User Chat.
+    public render(): React.ReactNode {
+        const { support, user, chats } = this.props;
         if (!support.userName) {
             return (
                 <div>
@@ -87,19 +87,18 @@ class UserChatClass extends React.Component<IProps, IState> {
         );
     }
 
-    private handleMessageChange = (e) => {
+    private handleMessageChange = (e): void => {
         this.setState({
             message: e.target.value,
         });
     }
 
-    private handleKeyPress(ev) {
-        const { support, user, chatBoard } = this.props;
+    // Handle message box key press.
+    private handleKeyPress(ev): void {
+        const { support } = this.props;
         const { message } = this.state;
+        // If enter is pressed send message to support.
         if (ev.which === 13) {
-            // const trimmedMessage = this.props.value.trim();
-
-            // if (trimmedMessage) {
             const store = getStore();
             store.dispatch(sendMessageToAgent({
                 receiverId: support.userName,
@@ -119,7 +118,6 @@ const mapStateToProps = (state) => {
     const user = state.authentication.user || {};
     return {
         user,
-        chatBoard: state.chatBoard,
         chats: state.chats,
         support: state.support,
     };

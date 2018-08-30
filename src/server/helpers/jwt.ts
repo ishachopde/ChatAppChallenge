@@ -1,3 +1,8 @@
+/**
+ * Setup express JWT..
+ * @author  Isha CHopde
+ */
+
 import * as expressJwt from "express-jwt";
 import config from "../config";
 import userService from "../service/user";
@@ -17,7 +22,7 @@ function jwt() {
 }
 
 async function isRevoked(req, payload, done) {
-    const user = await userService.getById(payload.sub);
+    const user = await userService.getById(payload.user.id);
 
     // revoke token if user no longer exists
     if (!user) {

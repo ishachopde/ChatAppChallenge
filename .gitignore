@@ -2,9 +2,11 @@
 build/
 
 .DS_Store
+_DS_Store
 
 #Exclude tsc generated files
 *.map
 src/**/*.js
-
 .idea/
+package-lock.json
+>>>>>>> COde comments added

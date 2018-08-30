@@ -7,7 +7,6 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 let store = null;
 import {chatMiddleware} from "./chat-middlerware";
 import chatsReducer from "./reducers/ChatsReducer";
-import chatBoardReducer from "./reducers/ChatBoardReducer";
 import SupportReducer from "./reducers/SupportReducer";
 import connectedUsersReducer from "./reducers/ConnectedUsers";
 import thunkMiddleware from "redux-thunk";
@@ -19,12 +18,12 @@ export const configure = (initialState) => {
         authentication: AuthenticationReducer,
         registration: RegistrationReducer,
         alert: AlertReducer,
-        chatBoard: chatBoardReducer,
         chats: chatsReducer,
         support: SupportReducer,
         connectedUsers: connectedUsersReducer,
     });
 
+    // Create store from combined reducers and initial state.
     store = createStore(appReducer, initialState, compose(
         applyMiddleware(chatMiddleware, thunkMiddleware),
     ));

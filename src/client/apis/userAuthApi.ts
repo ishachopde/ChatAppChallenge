@@ -1,15 +1,27 @@
+
+/**
+ * User Auth Apis.
+ * @author  Isha CHopde
+ */
+
 import { authHeader } from "../helpers";
 
 export const userAuthApis = {
     login,
     logout,
     register,
-    getAll,
     getById,
     update,
     delete: _delete,
 };
 
+/**
+ * Calls login Api with given username and password.
+ *
+ * @param {*} username - username of the user.
+ * @param {*} password - password provided by the user.
+ * @returns
+ */
 function login(username, password) {
     const requestOptions = {
         method: "POST",
@@ -30,20 +42,21 @@ function login(username, password) {
         });
 }
 
+/**
+ *   Logs user out of the system.
+ *
+ */
 function logout() {
     // remove user from local storage to log user out
     localStorage.removeItem("user");
 }
 
-function getAll() {
-    const requestOptions = {
-        method: "GET",
-        headers: authHeader(),
-    };
-
-    return fetch(`/users`, requestOptions).then(handleResponse);
-}
-
+/**
+ * Get user information using Id.
+ *
+ * @param {*} id
+ * @returns
+ */
 function getById(id) {
     const requestOptions = {
         method: "GET",
@@ -53,6 +66,12 @@ function getById(id) {
     return fetch(`/users/${id}`, requestOptions).then(handleResponse);
 }
 
+/**
+ * Call register user api with user provided information.
+ *
+ * @param {*} user
+ * @returns
+ */
 function register(user) {
     const requestOptions = {
         method: "POST",
@@ -63,6 +82,12 @@ function register(user) {
     return fetch(`/users/register`, requestOptions).then(handleResponse);
 }
 
+/**
+ * Updates user information.
+ *
+ * @param {*} user
+ * @returns
+ */
 function update(user) {
     const requestOptions = {
         method: "PUT",
@@ -84,7 +109,6 @@ function _delete(id) {
 }
 
 function handleResponse(response) {
-    console.log(response);
     return response.text().then((text) => {
         const data = text && JSON.parse(text);
         // console.log(data);
@@ -96,7 +120,6 @@ function handleResponse(response) {
             }
 
             const error = (data && data.message) || response.statusText;
-            // console.log(error);
             return Promise.reject(error);
         }
 

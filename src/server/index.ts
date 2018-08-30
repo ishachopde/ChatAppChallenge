@@ -8,10 +8,10 @@ import config from "./config";
 import * as socket from "socket.io";
 import ChatController from "./controllers/chatController";
 import * as  socketioJwt from "socketio-jwt";
+
 /**
  * Get port from environment and store in Express.
  */
-
 const port = normalizePort(config.appConfig.port || "3000");
 app.set("port", port);
 
@@ -21,23 +21,29 @@ app.set("port", port);
 const server = http.createServer(app);
 const io = socket(server);
 
+// Using socketJwt authorize the socket connection.
+// set authorization for socket.io
 io.use(socketioJwt.authorize({
     secret: config.secret,
     handshake: true,
 }));
 
-// set authorization for socket.io
+// On Socket Connection.
 io.on("connection", (socket) => {
     // Allow chat if socket is authenticated.
     const chatController = new ChatController();
 
-    // Get User from decode Token.
+    // Get User from decode Token provided by socketio-jwt.
     const user = socket.decoded_token.user;
+
+    // Define all the listeners.
     chatController.on(io, socket, user);
 
     if (user) {
+        // Connect user to the server.
         chatController.userConnected(socket, user);
     }
+
     socket.on("disconnect", () => {
         // When client disconnects.
         chatController.userDisconnected(socket, user);
@@ -51,7 +57,7 @@ io.on("connection", (socket) => {
 server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
-console.log("Server running on port" + port);
+console.log("\x1b[32m", "\n Server running on port" + port);
 /**
  * Normalize a port into a number, string, or false.
  */

@@ -7,8 +7,9 @@ import * as ReactDOM from "react-dom";
 import { App } from "./components/App";
 import {Provider} from "react-redux";
 import initialState from "./initialState";
-import {chatMiddleware} from "./chat-middlerware";
 import { configure } from "./store";
+
+// Configure the redux store.
 const store = configure(initialState);
 
 const ROOT = document.querySelector(".container");

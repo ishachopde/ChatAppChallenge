@@ -1,12 +1,12 @@
 {
     "name": "support-chat",
     "version": "1.0.0",
-    "description": "Chat Application Challenge",
+    "description": "Support Chat Challenge",
     "main": "index.js",
     "scripts": {
         "start-dev": "webpack --mode=development && node ./bin/www",
         "start": "webpack --mode=development && tsc && node ./src/server/index.js",
-        "test": "npm run test",
+        "test": "mocha -r ts-node/register tests/**/*.test.ts",
         "tslint": "tslint -c tslint.json 'src/**/*.ts'"
     },
     "author": "Isha Chopde",
@@ -32,7 +32,6 @@
         "file-loader": "^2.0.0",
         "html-loader": "^0.5.5",
         "jsonwebtoken": "^8.2.2",
-        "kr": "0.0.1",
         "lodash": "^4.17.10",
         "moment": "^2.22.2",
         "mongodb": "^3.0.10",
@@ -56,7 +55,6 @@
         "socketio-jwt": "^4.5.0",
         "source-map-loader": "^0.2.3",
         "style-loader": "^0.21.0",
-        "ts-node": "^7.0.0",
         "typescript": "^2.9.1",
         "typings-for-css-modules-loader": "^1.7.0",
         "underscore": "^1.8.3",
@@ -66,7 +64,15 @@
     },
     "devDependencies": {
         "image-webpack-loader": "^4.3.1",
+        "@types/chai": "^4.1.4",
+        "@types/mocha": "^5.2.5",
+        "@types/sinon": "^5.0.2",
+        "chai": "^4.1.2",
+        "mocha": "^5.2.0",
         "nodemon": "^1.17.5",
+        "sinon": "^6.1.5",
+        "supertest": "^3.1.0",
+        "ts-node": "^7.0.1",
         "tslint": "^5.11.0",
         "tslint-react": "^3.6.0"
     }
