@@ -19,7 +19,7 @@ const config = {
 
     },
     production: {
-
+        secret: "THIS IS ISHA CHOPDE'S SECRET ;-)",
     },
 };
 
