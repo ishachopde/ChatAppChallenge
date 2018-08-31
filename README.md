@@ -4,6 +4,13 @@
 This Chat Application allow users to connect to the support agents.
 
 [Demo](https://user-support-chat-app.herokuapp.com/)
+### Demo Guide:
+1.	Go to Register page and fill out the details. When accessing the URL for the first time, check “Support” box to bring the Support Online.
+2.	Login with the credentials to bring Support online. An empty window is opened with a message, wait for the user to be connected.
+3.	Open the URL in another browser tab and go to Register page. Fill out the details, without checking “Support” box (here, we bring the User online now)
+4.	Login with the credentials to bring User online. A window is opened with a Support chat box, and in the Support window, the User chat box is opened.
+5.  Open as many user you want.
+5.	Send messages.
 
 ## Getting Started
 
