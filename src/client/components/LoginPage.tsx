@@ -10,6 +10,8 @@ import { connect } from "react-redux";
 import { userAuthActions } from "../actions/userAuthAction";
 import { Readme } from "./Readme";
 // import "../resources/styles/loginstyles.css";
+
+import {RegisterPage} from "./RegisterPage";
 interface IProps {
     loggingIn?;
     dispatch?;
@@ -43,37 +45,53 @@ class LoginPage extends React.Component<IProps, any> {
         const { loggingIn, login } = this.props;
         const { username, password, submitted } = this.state;
         return (
-            <div className="bg">
-                <h2 className="display-4"><strong>Support Chat App</strong></h2>
-                <div className="col-md-6 col-md-offset-2 bg">
-                    <h4>Login</h4>
-                    <hr className="colorgraph"/>
-                    <form name="form" onSubmit={this.handleSubmit}>
-                        <div className={"form-group" + (submitted && !username ? " has-error" : "")}>
-                            <label htmlFor="username">Username</label>
-                            <input type="text" className="form-control" name="username" value={username} onChange={this.handleChange} />
-                            {submitted && !username &&
-                                <div className="help-block">Username is required</div>
-                            }
-                        </div>
-                        <div className={"form-group" + (submitted && !password ? " has-error" : "")}>
-                            <label htmlFor="password">Password</label>
-                            <input type="password" className="form-control" name="password" value={password} onChange={this.handleChange} />
-                            {submitted && !password &&
-                                <div className="help-block">Password is required</div>
-                            }
-                        </div>
-                        {login ? <div className="alert alert-danger" role="alert">{login}</div> : ""}
-                        <hr className="colorgraph"/>
-                        <div className="form-group">
-                            <button className="btn btn-primary">Login</button>
-                            <Link to="/register" className="btn btn-link">Register</Link>
-                        </div>
-                    </form>
-                </div>
-                <div className="col-md-9 col-md-offset-1">
-                    <Readme />
+            <div className="wthree-dot">
+                <h1><strong>Support Chat App</strong></h1>
+                <div className="profile">
+                    <div className="wrap">
+                        <div className="wthree-grids">
+                            <div className="content-left">
+                                <div className="content-info">
+                                    <h2>Brief Info About Us</h2>
+                                    <hr className="colorgraph"/>
+                                    <Readme/>
+                                    <div className="agile-signin">
+                                        <h4>Don't have an account ? <Link to="/register" className="btn btn-link">Register</Link></h4>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div className="content-main">
+                                <div className="w3ls-subscribe">
+                                    <h4>Sign In</h4>
+                                    <hr className="colorgraph"/>
+                                    <form name="form" onSubmit={this.handleSubmit}>
+                                        <div className={"form-group" + (submitted && !username ? " has-error" : "")}>
+                                            <label className="font" htmlFor="username">Username</label>
+                                            <input type="text" className="form-control" name="username" value={username} onChange={this.handleChange} placeholder="Username"/>
+                                            {submitted && !username &&
+                                            <div className="help-block">Username is required</div>
+                                            }
+                                        </div>
+                                        <div className={"form-group" + (submitted && !password ? " has-error" : "")}>
+                                            <label className="font" htmlFor="password">Password</label>
+                                            <input type="password" className="form-control" name="password" value={password} onChange={this.handleChange} placeholder="Password"/>
+                                            {submitted && !password &&
+                                            <div className="help-block">Password is required</div>
+                                            }
+                                        </div>
+                                        {login ? <div className="alert alert-danger" role="alert">{login}</div> : ""}
+                                        <hr className="colorgraph"/>
+                                        <div className="form-group">
+                                            <button className="btn btn-primary">Login</button>
+                                            <Link to="/register" className="btn btn-link">Register</Link>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr className="colorgraph"/>
                 </div>
             </div>
         );
