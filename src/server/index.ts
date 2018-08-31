@@ -12,7 +12,7 @@ import * as  socketioJwt from "socketio-jwt";
 /**
  * Get port from environment and store in Express.
  */
-const port = normalizePort(config.appConfig.port || "3000");
+const port = normalizePort(process.env.PORT || config.appConfig.port || "3000");
 app.set("port", port);
 
 /**
