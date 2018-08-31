@@ -25,8 +25,7 @@
         "cookie-parser": "~1.4.3",
         "cors": "^2.8.4",
         "css-loader": "^0.28.11",
-        "debug": "~2.2.0",
-        "ejs": "~2.4.1",
+        "ejs": "~2.6.1",
         "express": "^4.16.3",
         "express-jwt": "^5.3.1",
         "file-loader": "^2.0.0",
@@ -39,9 +38,7 @@
         "morgan": "~1.7.0",
         "node-sass": "^4.9.0",
         "react": "16.4.1",
-        "react-autosuggest": "^9.3.4",
         "react-dom": "16.4.1",
-        "react-modal": "^3.5.1",
         "react-redux": "^5.0.7",
         "react-router-dom": "^4.3.1",
         "redux": "^4.0.0",
@@ -63,7 +60,6 @@
         "webpack-cli": "^3.0.8"
     },
     "devDependencies": {
-        "image-webpack-loader": "^4.3.1",
         "@types/chai": "^4.1.4",
         "@types/mocha": "^5.2.5",
         "@types/sinon": "^5.0.2",
