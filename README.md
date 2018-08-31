@@ -1,7 +1,9 @@
 
-# User Support CHat Application.
+# User Support Chat Application.
 
 This Chat Application allow users to connect to the support agents.
+
+[Demo](https://user-support-chat-app.herokuapp.com/)
 
 ## Getting Started
 
@@ -11,21 +13,23 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-    * Install Mongo DB - https://docs.mongodb.com/manual/administration/install-community/
-    ** Mac - https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/?_ga=2.72773907.1410341941.1535649337-970892403.1535649337
+    > Install Mongo DB - 
+    https://docs.mongodb.com/manual/administration/install-community/
+
+    Mac - https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/?_ga=2.72773907.1410341941.1535649337-970892403.1535649337
 
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
 
-npm install
+> npm install
 
--- Note - make sure your MongoDB is running, before starting the app.
+Note - make sure your MongoDB is running, before starting the app.
 
 Optional - set process.env.MONGODB_URI - with user Mongo server Uri.
 
-npm start
+> npm start
 
 ## Built With
 
@@ -42,7 +46,7 @@ npm start
 ## Client architecture
 ![client architecture](https://github.com/ishachopde/ChatAppChallenge/blob/master/architecture/ClientArchitecture.png "Client Architecture")
 
-##Feature - 
+## Feature - 
     * User can send messages to support.
     * Support can talk to many users at the same time.
     * Support is notified if he dont reply to the user.
@@ -55,7 +59,6 @@ npm start
 ## Assumption - 
     * when user joins the system, random support is allocated to him. 
     * Support should be online first, before any user joins the system.
-    * 
 
 ## Limitations - 
     * if same user logs in multiple windows, user connection data is not persisted.
