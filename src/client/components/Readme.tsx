@@ -4,7 +4,6 @@
  * @author  Isha CHopde
  */
 import * as React from "react";
-// import "../resources/styles/loginstyles.css";
 
 export class Readme extends React.Component {
     public render() {
@@ -12,14 +11,15 @@ export class Readme extends React.Component {
             <div>
                 <br/>
                 <br/>
-                    This Chat Application allow users to connect to the support agents. The app requires the Support Agent to come online first, then users can join in.
+                    This Chat Application allow users to connect to the support agents. Support can handle multi users at the same time with responsive UI.
                 <br/>
                 <br/>
-                    <p><strong>Note!</strong> While registering for the first time please check "SUPPORT" checkbox to bring Support Agent Online.</p>
+                    <p> Built using React, Redux, Node, Express, Socket.io </p>
                 <br/>
                 <br/>
                 <div className="danger">
-                    <p><strong>Warning!</strong> Always bring the Support Agent Online first</p>
+                    <p><strong>Note!</strong> Please login as a support, before user. Support should be available
+                    before it can be allocated.</p>
                 </div>
             </div>
         );

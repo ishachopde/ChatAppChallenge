@@ -43,13 +43,12 @@ class LoginPage extends React.Component<IProps, any> {
         const { username, password, submitted } = this.state;
         return (
             <div className="wthree-dot">
-                <h1><strong>Support Chat App</strong></h1>
                 <div className="profile">
                     <div className="wrap">
                         <div className="wthree-grids">
                             <div className="content-left">
                                 <div className="content-info">
-                                    <h2>Brief Info About Us</h2>
+                                    <h2>Support Chat App</h2>
                                     <hr className="colorgraph"/>
                                     <Readme/>
                                     <div className="agile-signin">
@@ -88,7 +87,6 @@ class LoginPage extends React.Component<IProps, any> {
                             </div>
                         </div>
                     </div>
-                    <hr className="colorgraph"/>
                 </div>
             </div>
         );

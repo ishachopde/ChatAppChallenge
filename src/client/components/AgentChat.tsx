@@ -15,7 +15,7 @@ import { Chats } from "./common/Chats";
 import { HorizontalUserList } from "./common/HorizontalUserLIst";
 import {UserTypes, ChatsTypes, ConnectedUsersTypes} from "../types/types";
 import { Colors as backgroundColors} from "../utils/Colors";
-
+import { Message } from "./common/Message";
 interface IProps {
     user: any;
     connectedUsers: UserTypes[];
@@ -63,7 +63,14 @@ class AgentChatClass extends React.Component<IProps, IState> {
             <div>
                 <Header />
                 <HorizontalUserList maxActiveChats={maxActiveChats} inactiveChats={inactiveChats} setActiveUser={this.setActiveUser.bind(this)} />
-                {this.renderActiveChats.call(this, maxActiveChats, activeChats)}
+                {
+                    (activeChats.length === 0) ?
+                        (<Message
+                            message="No user is connected yet. Wait for user to get connected."
+                        />)
+                        :
+                        this.renderActiveChats.call(this, maxActiveChats, activeChats)
+                }
             </div>
         );
     }

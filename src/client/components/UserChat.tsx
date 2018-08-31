@@ -10,6 +10,7 @@ import { Header } from "./common/Header";
 import { connect } from "react-redux";
 import { Chats } from "./common/Chats";
 import {UserTypes, ChatsTypes, AgentTypes} from "../types/types";
+import { Message } from "./common/Message";
 interface IProps {
     user: any;
     chats: ChatsTypes;
@@ -43,7 +44,9 @@ class UserChatClass extends React.Component<IProps, IState> {
             return (
                 <div>
                     <Header />
-                    No Agent Assign to the user, please run the Agent first and rerun the app.
+                    <Message
+                        message="No support is Assigned to the user, please run the app as a support and re login after that."
+                    />
                 </div>
             );
         }
