@@ -21,6 +21,8 @@ export class Readme extends React.Component {
                     <p><strong>Note!</strong> Please login as a support, before user. Support should be available
                     before it can be allocated.</p>
                 </div>
+                <br/>
+                <a className="links" href="https://github.com/ishachopde/ChatAppChallenge/blob/master/README.md">Read More</a> &nbsp; &nbsp;<a className="links" href="https://github.com/ishachopde/ChatAppChallenge"> GitHub</a>
             </div>
         );
     }
